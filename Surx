@@ -1,16 +1,22 @@
-[General]
+[custom]
 dns-server = system
 
-[Proxy Group]
-节点 = select , include-all-proxies = true
+custom_proxy_group=节点`select`.*
 
-[Rule]
-SUBNET , ROUTER : 192.168.109.3 , 节点
-SUBNET , ROUTER : 192.168.109.5 , DIRECT
-SUBNET , ROUTER : 192.168.109.7 , DIRECT
-SUBNET , ROUTER : 192.168.109.8 , DIRECT
 
-DOMAIN-SET , https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_Domain.list , DIRECT
-RULE-SET , https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list , DIRECT
+surge_subnet=节点,ROUTER:192.168.109.3
+surge_subnet=DIRECT,ROUTER:192.168.109.5
+surge_subnet=DIRECT,ROUTER:192.168.109.7
+surge_subnet=DIRECT,ROUTER:192.168.109.8
 
-FINAL , 节点
+
+surge_ruleset=节点,[]DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+surge_ruleset=节点,[]DOMAIN-SUFFIX,services.googleapis.cn
+surge_ruleset=节点,[]DOMAIN-SUFFIX,browserleaks.com
+surge_ruleset=节点,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
+surge_domainset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_Domain.list
+surge_ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list
+surge_ruleset=节点,[]FINAL
+
+enable_rule_generator=true
+overwrite_original_rules=true
