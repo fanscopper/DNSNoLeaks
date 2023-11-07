@@ -1,14 +1,5 @@
 [custom]
-surge_dns-server=system
-
 custom_proxy_group=节点`select`.*
-
-
-surge_subnet=节点,[]ROUTER:192.168.109.3
-surge_subnet=DIRECT,[]ROUTER:192.168.109.5
-surge_subnet=DIRECT,[]ROUTER:192.168.109.7
-surge_subnet=DIRECT,[]ROUTER:192.168.109.8
-
 
 surge_ruleset=节点,[]DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 surge_ruleset=节点,[]DOMAIN-SUFFIX,services.googleapis.cn
