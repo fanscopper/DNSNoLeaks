@@ -1,5 +1,5 @@
 [custom]
-dns-server = system
+dns-server=system
 
 custom_proxy_group=节点`select`.*
 
