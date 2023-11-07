@@ -5,7 +5,7 @@ surge_ruleset=节点,[]DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 surge_ruleset=节点,[]DOMAIN-SUFFIX,services.googleapis.cn
 surge_ruleset=节点,[]DOMAIN-SUFFIX,browserleaks.com
 #surge_ruleset=节点,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
-surge_domain-set=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_Domain.list
+surge_ruleset=DIRECT,[]DOMAIN,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_Domain.list
 #surge_ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list
 surge_ruleset=节点,[]FINAL
 
