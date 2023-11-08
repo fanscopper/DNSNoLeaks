@@ -1,5 +1,9 @@
 [custom]
 ;解决DNS泄露，无分流群组
+ruleset=DIRECT,[]DOMAIN,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org
+ruleset=DIRECT,[]DOMAIN,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+ruleset=DIRECT,[]DOMAIN,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+ruleset=DIRECT,[]DOMAIN,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org
 ruleset=节点,[]DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 ruleset=节点,[]DOMAIN-SUFFIX,services.googleapis.cn
 ruleset=节点,[]DOMAIN-SUFFIX,browserleaks.com
