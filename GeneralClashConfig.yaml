@@ -1,6 +1,7 @@
 ---
 
 allow-lan: true
+bind-address: "*"
 mode: rule
 log-level: info
 redir-port: 7892
@@ -9,7 +10,6 @@ port: 7721
 socks-port: 7857
 mixed-port: 7668
 secret: '98456'
-bind-address: "*"
 external-controller: 0.0.0.0:8979
 clash-for-android:
   append-system-dns: false
@@ -34,6 +34,7 @@ tun:
   - tcp://any:53
 dns:
   enable: true
+  prefer-h3: true
   ipv6: false
   default-nameserver:
   - 223.5.5.5
