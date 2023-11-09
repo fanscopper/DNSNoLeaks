@@ -6,7 +6,7 @@ allow-lan: false
 disable-stun: true
 mode: rule
 log-level: info
-# external-controller: 127.0.0.1:9090
+external-controller: 127.0.0.1:9090
 clash-for-android:
   append-system-dns: false
 profile:
