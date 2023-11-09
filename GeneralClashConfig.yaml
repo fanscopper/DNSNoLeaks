@@ -13,7 +13,6 @@ secret: '98456'
 external-controller: 0.0.0.0:8979
 clash-for-android:
   append-system-dns: false
-disable-stun: true
 profile:
   tracing: true
   store-selected: true
@@ -34,7 +33,6 @@ tun:
   - tcp://any:53
 dns:
   enable: true
-  prefer-h3: true
   ipv6: false
   default-nameserver:
   - 223.5.5.5
