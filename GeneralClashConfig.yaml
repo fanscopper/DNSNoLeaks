@@ -37,6 +37,7 @@ rules:
   - DOMAIN-SUFFIX, xn--ngstr-lra8j.com, 节点
   - DOMAIN-SUFFIX, services.googleapis.cn, 节点
   - DOMAIN-SUFFIX, browserleaks.com, 节点
-
-  ...
   - MATCH, 节点
+
+
+...
