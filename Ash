@@ -1,5 +1,7 @@
 [custom]
 ;解决DNS泄露，无分流群组
+clash_rule_base=https://raw.githubusercontent.com/fanscopper/DNSNoLeaks/main/GeneralClashConfig.yaml
+
 enable_rule_generator=true
 overwrite_original_rules=true
 
