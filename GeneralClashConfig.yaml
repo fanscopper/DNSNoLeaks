@@ -188,9 +188,9 @@ rules:
 - DOMAIN,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,DIRECT
 - DOMAIN,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,DIRECT
 - DOMAIN,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,DIRECT
-- DOMAIN-SUFFIX,xn--ngstr-lra8j.com,PROXY
-- DOMAIN-SUFFIX,services.googleapis.cn,PROXY
-- DOMAIN-SUFFIX,browserleaks.com,PROXY
-- RULE-SET,Google,PROXY
-- RULE-SET,ChinaMaxNoIPv6,DIRECT
-- MATCH,PROXY
+#- DOMAIN-SUFFIX,xn--ngstr-lra8j.com,PROXY
+#- DOMAIN-SUFFIX,services.googleapis.cn,PROXY
+#- DOMAIN-SUFFIX,browserleaks.com,PROXY
+#- RULE-SET,Google,PROXY
+#- RULE-SET,ChinaMaxNoIPv6,DIRECT
+- MATCH,DIRECT
