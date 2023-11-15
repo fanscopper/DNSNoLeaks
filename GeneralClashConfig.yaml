@@ -26,9 +26,9 @@ sniffer:
 tun:
   enable: true
   stack: system
-  device: utun
-  auto-route: false
-  auto-detect-interface: false
+  device: utun0
+  auto-route: true
+  auto-detect-interface: true
   dns-hijack:
   - tcp://any:53
 dns:
@@ -37,10 +37,10 @@ dns:
   default-nameserver:
   - 223.5.5.5
   - 119.29.29.29
-  use-hosts: false
+  use-hosts: true
   nameserver:
-  - https://dns.alidns.com/dns-query
-  - https://doh.pub/dns-query
+  - https://223.5.5.5/dns-query
+  - https://223.6.6.6/dns-query
   - 223.5.5.5
   - 114.114.114.114
   - 119.29.29.29
