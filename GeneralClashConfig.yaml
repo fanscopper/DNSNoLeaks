@@ -160,4 +160,3 @@ dns:
   - local.adguard.org
   - "+.sandai.net"
   - "+.n0808.com"
-  - services.googleapis.cn
