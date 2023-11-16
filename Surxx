@@ -12,7 +12,7 @@ http-listen = 0.0.0.0:6152
 socks5-listen = 0.0.0.0:6153
 exclude-simple-hostnames = true
 ipv6 = false
-always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com
+always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, lens.l.google.com, stun.l.google.com, 
 
 # If proxy not support udp relay, use DIRECT or REJECT instead
 udp-policy-not-supported-behaviour = REJECT
@@ -39,18 +39,11 @@ udp-policy-not-supported-behaviour = REJECT
 
 
 [Rule]
-# domain exact match 'www.apple.com' will be redirected to proxy named 'ProxyHTTP' in [Proxy] section 
-DOMAIN,www.apple.com,ProxyHTTP
-
-# domain exact match 'www.google.com' will be redirected to proxy group named 'SelectGroup' in [Proxy Group] section
-DOMAIN,www.google.com,SelectGroup
-
 # domain ends with 'apple.com' will be redirected to 'Proxy', DNS query of this domain will triggered in the remote proxy
 DOMAIN-SUFFIX,apple.com,Proxy,force-remote-dns
 
 # domain contains 'google' keyword will be redirected to 'Proxy', a fake ip will be returned in DNS query
 DOMAIN-KEYWORD,google,Proxy,enhanced-mode
-
 
 # traffic sent by application whose package name is 'com.android.vending' will be sent to 'Proxy'
 PROCESS-NAME,com.android.vending,Proxy  # android package name
