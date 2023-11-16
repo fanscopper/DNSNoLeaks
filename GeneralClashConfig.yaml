@@ -23,7 +23,7 @@ sniffer:
   enable: true
 tun:
   enable: true
-  stack: system
+  stack: gvisor
   device: utun0
   auto-route: true
   auto-detect-interface: true
