@@ -1,14 +1,87 @@
-[custom]
-#surge_rule_base = "base/surge.conf"
-#surfboard_rule_base = "base/surfboard.conf"
+[General]
+loglevel = notify
+dns-server = 223.5.5.5, 223.6.6.6, 114.114.114.114, 119.29.29.29 
+doh-server = https://223.5.5.5/dns-query
+tun-excluded-routes = 0.0.0.0/8, 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.168.0.0/16, 192.88.99.0/24, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+skip-proxy =  localhost, *.local, injections.adguard.org, local.adguard.org, captive.apple.com, guzzoni.apple.com, 0.0.0.0/8, 10.0.0.0/8, 17.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.168.0.0/16, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 240.0.0.0/4, 255.255.255.255/32, www.baidu.com //444
+proxy-test-url = http://www.gstatic.com/generate_204
+internet-test-url = http://www.qualcomm.cn/generate_204
+# Timeout for all connectivity test
+test-timeout = 1000
+http-listen = 0.0.0.0:6152
+socks5-listen = 0.0.0.0:6153
+exclude-simple-hostnames = true
+ipv6 = false
+always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com
 
-custom_proxy_group=节点`select`.*
+# If proxy not support udp relay, use DIRECT or REJECT instead
+udp-policy-not-supported-behaviour = REJECT
 
-surge_ruleset=节点,[]DOMAIN-SUFFIX,xn--ngstr-lra8j.com
-surge_ruleset=节点,[]DOMAIN-SUFFIX,services.googleapis.cn
-surge_ruleset=节点,[]DOMAIN-SUFFIX,browserleaks.com
-;surge_ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list
-surge_ruleset=节点,[]FINAL
+[Host]
+# map 'abc.com' to '1.2.3.4'
+# abc.com = 1.2.3.4
 
-enable_rule_generator=true
-overwrite_original_rules=true
+# map any domain end with '.dev' to '6.7.8.9'
+# *.dev = 6.7.8.9
+
+# alias 'bar.com' dns query result to 'foo.com'
+# foo.com = bar.com
+
+# assign '8.8.8.8' as dns server for 'bar.com'
+# bar.com = server:8.8.8.8
+
+[Proxy]
+
+
+
+[Proxy Group]
+
+
+
+[Rule]
+# domain exact match 'www.apple.com' will be redirected to proxy named 'ProxyHTTP' in [Proxy] section 
+DOMAIN,www.apple.com,ProxyHTTP
+
+# domain exact match 'www.google.com' will be redirected to proxy group named 'SelectGroup' in [Proxy Group] section
+DOMAIN,www.google.com,SelectGroup
+
+# domain ends with 'apple.com' will be redirected to 'Proxy', DNS query of this domain will triggered in the remote proxy
+DOMAIN-SUFFIX,apple.com,Proxy,force-remote-dns
+
+# domain contains 'google' keyword will be redirected to 'Proxy', a fake ip will be returned in DNS query
+DOMAIN-KEYWORD,google,Proxy,enhanced-mode
+
+
+# traffic sent by application whose package name is 'com.android.vending' will be sent to 'Proxy'
+PROCESS-NAME,com.android.vending,Proxy  # android package name
+PROCESS-NAME,*google*,Proxy             # android package name wildcard rule
+
+# traffic match external rules defined in 'https://ruleset.com/cn' will be sent to 'ProxyVMess'
+RULE-SET,https://ruleset.com/cn,ProxyVMess
+
+# traffic match external domain rules defined in 'https://domainset.com/ad' will be rejected'
+DOMAIN-SET,https://domainset.com/ad,REJECT
+
+# traffic sent using wifi whose ssid name is 'CMCC' will be rejected
+# SUBNET,SSID:CMCC,REJECT
+
+# traffic sent using wifi whose bssid is 'F4-98-A0-73-3A-5B' will be sent directly
+# SUBNET,BSSID:F4-98-A0-73-3A-5B,DIRECT
+
+# traffic sent through a router whose ip is '192.168.1.1' will be sent directly
+# SUBNET,ROUTER:192.168.1.1,DIRECT
+
+# traffic sent using wifi will be sent directly
+# SUBNET,TYPE:WIFI,DIRECT
+
+# traffic sent using wired network will be sent directly
+# SUBNET,TYPE:WIRED,DIRECT
+
+# traffic sent using mobile network will be sent through 'SelectGroup'
+# SUBNET,TYPE:CELLULAR,SelectGroup
+
+# traffic sent using mobile network whose MCC is 100 and MNC is 200, will be sent directly
+# SUBNET,MCCMNC:100-200,DIRECT
+
+# traffic doesn't match rules above will be sent to 'ProxyTrojan'
+FINAL,白月光
