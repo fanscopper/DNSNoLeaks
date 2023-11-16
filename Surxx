@@ -26,21 +26,21 @@ show-error-page-for-reject = true
 
 
 [Rule]
-# domain ends with 'apple.com' will be redirected to 'Proxy', DNS query of this domain will triggered in the remote proxy
-DOMAIN-SUFFIX,apple.com,Proxy,force-remote-dns
+# DNS query of this domain will triggered in the remote proxy
+# DOMAIN-SUFFIX,apple.com,Proxy,force-remote-dns
 
 # domain contains 'google' keyword will be redirected to 'Proxy', a fake ip will be returned in DNS query
-DOMAIN-KEYWORD,google,Proxy,enhanced-mode
+# DOMAIN-KEYWORD,google,Proxy,enhanced-mode
 
 # traffic sent by application whose package name is 'com.android.vending' will be sent to 'Proxy'
-PROCESS-NAME,com.android.vending,Proxy  # android package name
-PROCESS-NAME,*google*,Proxy             # android package name wildcard rule
+# PROCESS-NAME,com.android.vending,Proxy  # android package name
+# PROCESS-NAME,*google*,Proxy             # android package name wildcard rule
 
 # traffic match external rules defined in 'https://ruleset.com/cn' will be sent to 'ProxyVMess'
-RULE-SET,https://ruleset.com/cn,ProxyVMess
+# RULE-SET,https://ruleset.com/cn,ProxyVMess
 
 # traffic match external domain rules defined in 'https://domainset.com/ad' will be rejected'
-DOMAIN-SET,https://domainset.com/ad,REJECT
+# DOMAIN-SET,https://domainset.com/ad,REJECT
 
 # traffic sent using wifi whose ssid name is 'CMCC' will be rejected
 # SUBNET,SSID:CMCC,REJECT
@@ -63,5 +63,26 @@ DOMAIN-SET,https://domainset.com/ad,REJECT
 # traffic sent using mobile network whose MCC is 100 and MNC is 200, will be sent directly
 # SUBNET,MCCMNC:100-200,DIRECT
 
-# traffic doesn't match rules above will be sent to 'ProxyTrojan'
-FINAL,白月光
+AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
+
+# ---远程规则集---
+# > 去广告
+# Advertising 广告
+
+
+
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list, REJECT
+
+DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising_Domain.list, REJECT
+
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list, DIRECT
+
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list, 白月光, force-remote-dns, enhanced-mode
+
+DOMAIN-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Global/Global_Domain.list, 白月光, force-remote-dns, enhanced-mode
+
+DOMAIN-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_Domain.list, DIRECT
+
+RULE-SET, https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list, DIRECT
+
+FINAL,白月光,dns-failed,force-remote-dns,enhanced-mode
