@@ -54,7 +54,7 @@ dns:
   # - https://1.1.1.1/dns-query
   nameserver-policy:                
     "geosite:gfw":
-      - 'https://1.1.1.1/dns-query#策略指向'
+      - 'https://1.1.1.1/dns-query#节点'
     "geosite:geolocation-cn": 
       - '223.5.5.5'
       - '114.114.114.114'
