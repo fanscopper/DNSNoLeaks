@@ -155,22 +155,22 @@ dns:
     ## behavior 必须为 domain/classical，当为 classical 时仅会生效域名类规则
     # "rule-set:BanProgramAD": rcode://success
 
-    '+.googleapis.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.gkecnapps.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.g.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.google.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.googlecnapps.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.gstatic.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.gstaticcnapps.cn': 'tls://1.1.1.1:853#策略指向'
-    '+.google-analytics-cn.com': 'tls://1.1.1.1:853#策略指向'
-    '+.googleapis-cn.com': 'tls://1.1.1.1:853#策略指向'
-    '+.googleapps-cn.com': 'tls://1.1.1.1:853#策略指向'
-    '+.gstatic-cn.com': 'tls://1.1.1.1:853#策略指向'
+    '+.googleapis.cn': 'tls://1.1.1.1:853#节点'
+    '+.gkecnapps.cn': 'tls://1.1.1.1:853#节点'
+    '+.g.cn': 'tls://1.1.1.1:853#节点'
+    '+.google.cn': 'tls://1.1.1.1:853#节点'
+    '+.googlecnapps.cn': 'tls://1.1.1.1:853#节点'
+    '+.gstatic.cn': 'tls://1.1.1.1:853#节点'
+    '+.gstaticcnapps.cn': 'tls://1.1.1.1:853#节点'
+    '+.google-analytics-cn.com': 'tls://1.1.1.1:853#节点'
+    '+.googleapis-cn.com': 'tls://1.1.1.1:853#节点'
+    '+.googleapps-cn.com': 'tls://1.1.1.1:853#节点'
+    '+.gstatic-cn.com': 'tls://1.1.1.1:853#节点'
     
     
     'geosite:geolocation-!cn':
-      - 'tls://1.1.1.1:853#策略指向'
-      # - 'https://cloudflare-dns.com/dns-query#策略指向'
+      - 'tls://1.1.1.1:853#节点'
+      # - 'https://cloudflare-dns.com/dns-query#节点'
      
     '+.hotmail.com': [ 223.5.5.5, 223.6.6.6, 114.114.114.114 ]
     '+.microsoft.com': [ 223.5.5.5, 223.6.6.6, 114.114.114.114 ]
