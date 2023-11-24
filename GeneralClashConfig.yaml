@@ -343,3 +343,8 @@ dns:
       # - '+.google.com'
       # - '+.facebook.com'
       # - '+.youtube.com'
+
+rules:
+- AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
+- GEOSITE,category-ads-all,REJECT
+- GEOSITE,googlefcm,节点
