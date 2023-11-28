@@ -151,8 +151,8 @@ dns:
     "+.appcenter.ms": rcode://success
     "+.firebase.io": rcode://success
     "+.crashlytics": rcode://success
-    "rule-set:GoogleFCM_No_Resolve,Telegram_No_Resolve,Global_Classical_No_Resolve": '127.0.0.1:7884'
-    "rule-set:Microsoft_No_Resolve,ChinaMax_Classical_No_IPv6_No_Resolve": "https://223.5.5.5/dns-query"
+    "geosite:geolocation-!cn": '127.0.0.1:7884'
+    "geosite:private,geolocation-cn": "https://223.5.5.5/dns-query"
 
  
   enhanced-mode: fake-ip          #DNS模式(redir-host/fake-ip)
