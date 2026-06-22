@@ -1,0 +1,20 @@
+      ## domain
+stun.nextcloud.com
+ipv4.am.i.mullvad.net
+ipv6.am.i.mullvad.net
+stunserver2026.stunprotocol.org
+stun.services.mozilla.com
+      ## domain-suffix
+.browserleaks.com
+.browserleaks.org
+.browserleaks.net
+.ipleak.net
+.swiftgram.app
+.dnscheck.tools
+.addr.tools
+.ipinfo.io
+.arin.net
+.apnic.net
+.ripe.net
+.lacnic.net
+.afrinic.net
