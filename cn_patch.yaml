@@ -1,5 +1,9 @@
     payload:
       ## domain
+      # 放行节点专用DNS
+      - "prolonged3729.com"
+      - "destitute2725.com"
+      - "kfzzxcx.com"
       # 放行Google FCM服务
       - "alt1-mtalk.google.com"
       - "alt2-mtalk.google.com"
