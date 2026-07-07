@@ -1,5 +1,7 @@
     payload:
       ## domain
+      - "time.apple.com"
+      - "testflight.apple.com"
       # 放行节点专用DNS
       - "prolonged3729.com"
       - "destitute2725.com"
